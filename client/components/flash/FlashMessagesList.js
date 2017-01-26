@@ -2,6 +2,7 @@ import React from 'react';
 import FlashMessage from './FlashMessage';
 import { connect } from 'react-redux';
 import { deleteFlashMessage } from '../../actions/flashMessages';
+
 class FlashMessagesList extends React.Component {
     render() {
         const messages = this.props.messages.map(message =>

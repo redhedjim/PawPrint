@@ -1,4 +1,4 @@
-import Validator from 'validator';
+import validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
 
 
