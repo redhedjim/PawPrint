@@ -1,0 +1,439 @@
+<h1>Hospitals</h1>
+
+<!-- New record button that triggers modal -->
+<button class="btn btn-primary btn-add pull-left" data-toggle="modal" data-target="#addClinicModal"><i class="fa fa-plus"></i></button>
+
+<!-- New record modal -->
+<div class="modal fade bs-example-modal-lg" id="addClinicModal" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a clinic</h4>
+      </div>
+      <div class="modal-body">      
+         <form class="form-horizontal form-clinic" style="margin-top: 40px;" method="POST" >
+  
+            <div class="form-group">
+            <label for="clinic-name" class="col-sm-2 control-label">Clinic name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-name" name="name">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-type" class="col-sm-2 control-label">Type</label>
+            <div class="col-sm-9">
+                <select class="form-control" id="clinic-type" name="type" style="width: 100%" >
+                    <option value="" selected=""></option>
+                </select>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-regional-director" class="col-sm-2 control-label">Regional director</label>
+            <div class="col-sm-9">
+                <select class="form-control" id="clinic-regional-director" name="regional_director" style="width: 100%" >
+                    <option value="" selected=""></option>
+                </select>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-medical-director" class="col-sm-2 control-label">Medical director</label>
+            <div class="col-sm-9">
+                <select class="form-control" id="clinic-medical-director" name="medical_director" style="width: 100%" >
+                    <option value=""></option>
+                </select>
+            </div>
+            </div>
+
+                <div class="form-group">
+            <label for="clinic-clinic-manager" class="col-sm-2 control-label">Clinic manager</label>
+            <div class="col-sm-9">
+                <select class="form-control" id="clinic-manager" name="clinic_manager" style="width: 100%" >
+                    <option value="" selected=""></option>
+                </select>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-name" class="col-sm-2 control-label">Clinic code</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-code" name="clinic_code">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-accounting-number" class="col-sm-2 control-label">Accounting number</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-accounting-number" name="accounting_number">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-conversion" class="col-sm-2 control-label">Conversion date</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-conversion">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-pms" class="col-sm-2 control-label">PMS</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-pms">
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <label for="clinic-phone1" class="col-sm-2 control-label">Phone 1</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-phone1">
+            </div>
+            </div>
+            <div class="form-group">
+            <label for="clinic-phone2" class="col-sm-2 control-label">Phone 2</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-phone2" >
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <label for="clinic-email1" class="col-sm-2 control-label">Email 1</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-email1" >
+            </div>
+            </div>
+            <div class="form-group">
+            <label for="clinic-email2" class="col-sm-2 control-label">Email 2</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-email2">
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <label for="clinic-address" class="col-sm-2 control-label">Address </label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-address" >
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <label for="clinic-city" class="col-sm-2 control-label">City</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-city">
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <label for="clinic-province" class="col-sm-2 control-label">Province</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-province">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-postal" class="col-sm-2 control-label">Postal code</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-postal">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="clinic-country" class="col-sm-2 control-label">Country</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="clinic-country" >
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary btn-save" >Save</button>
+            </div>
+      </form>
+      <!-- End of form -->          
+      </div>   
+    </div>
+  </div>
+</div>
+<!-- End of modal -->
+<% if(clinics.length !== 0 && clinics !== undefined) { %>
+    <table class="table table-hover">
+    <thead>
+        <th>Clinic name</th>
+        <th>Clinic manager</th>
+        <th>Medical director</th>
+        <th>Phone(s)</th>
+        <th>City, Province</th>  
+        <th>Email</th>
+        <th>Actions</th>
+    </thead>
+        <% _.each(clinics, function(clinic){ %>
+            <tr>
+                <td><%=clinic.accounting_number%> | <%=clinic.clinic_code%> - <%=clinic.name%></td>
+                <td><a href="#contacts/<%=clinic.clinic_manager.id%>"><%=clinic.clinic_manager.first%> <%=clinic.clinic_manager.last%></a></td>
+                <td><a href="#contacts/<%=clinic.medical_director.id%>"><%=clinic.medical_director.first%> <%=clinic.medical_director.last%></a></td>
+                <td><%=clinic.phone1%><%if(clinic.phone1 != clinic.phone2){%><br><%=clinic.phone2%> <%}%></td> <!-- Doesn't double print a number -->
+                <td><%=clinic.city%>, <%=clinic.province%></td>
+                <td><%=clinic.email1%><%if(clinic.email1 != clinic.email2){%><br><%=clinic.email2%> <%}%></td> <!-- Doesn't double print an email -->
+                <td><a class="btn btn-primary" href="#hospitals/<%=clinic.id%>">View</a></td>
+            </tr>
+    <% }); %>
+    </table>
+<% }else{ %>
+    <div class="col-sm-12">
+      <hr>
+    </div>
+    <div class="col-sm-12 text-center empty-list">There are no clinics yet.</div> 
+<% }; %>
+    <!--<div id="pagination-controls"> 
+        <nav>
+        <ul class="pagination">
+            
+            <!--First page link-->
+            <!--<li id="first-page">
+            <a aria-label="Previous">
+                <span class="fa fa-step-backward" aria-hidden="true"></span>
+            </a>-->
+            </li>
+            
+            <!--Previous page link-->
+            <!--<li id="previous-page">
+            <a aria-label="Previous">
+                <span class="fa fa-chevron-left" aria-hidden="true"></span>
+            </a>
+            </li>-->
+            
+            <!--Page number links-->
+            <!--<li class="page-link"><a></a></li>
+            <li class="page-link"><a></a></li>
+            <li class="page-link"><a></a></li>
+            <li class="page-link"><a></a></li>
+            <li class="page-link"><a></a></li>
+            <li class="page-link"><a></a></li>
+            <li class="page-link"><a></a></li>
+            <li class="page-link"><a></a></li>
+            <li class="page-link"><a></a></li>
+            -->
+            
+            <!--Next page link-->
+            <!--<li id="next-page">
+            <a aria-label="Next">
+                <span class="fa fa-chevron-right" aria-hidden="true"></span>
+            </a>
+            </li>
+            
+            <!--Last page link-->
+            <!--<li id="last-page">
+            <a aria-label="Next">
+                <span class="fa fa-step-forward" aria-hidden="true"></span>
+            </a>
+            </li>
+        </ul>
+        </nav>
+    </div>-->
+
+<script type="text/javascript">
+    $(document).ready(function(){ 
+        //Enables fancy date picker and sets format
+        $(function () {
+            $('#clinic-conversion').datetimepicker({ format: 'YYYY-MM-DD'});
+        }); 
+         //Form validation
+        $('.form-clinic').formValidation({
+            
+            //Resets validation status after closing modal
+            message: 'This value is not valid',
+            excluded: ':disabled',
+            
+            // I am validating Bootstrap form
+            framework: 'bootstrap',
+
+            // Feedback icons
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+        
+
+            // List of fields and their validation rules
+            fields: {
+                name:   {
+                    validators: {
+                        notEmpty:   {
+                            message: 'You must enter a clinic name.'
+                        }
+                    }
+                },
+                type:   {
+                    validators: {
+                    notEmpty:   {
+                        message: 'You must enter a clinic type.'
+                    }
+                    }
+                },
+                clinic_code: {
+                    validators: {
+                    notEmpty:  {
+                        message: 'You must enter a clinic code.'
+                    }
+                    }
+                },
+                accounting_number: {
+                    validators: {
+                        notEmpty: {
+                            message: 'You must enter an accounting number.'
+                        }
+                    }
+                },
+                regional_director: {
+                    validators:   { 
+                        notEmpty: {
+                                message: 'You must select a regional director.'
+                        }                 
+                    }
+                },
+                medical_director: {
+                    validators: { 
+                    notEmpty:   {
+                        message: 'You must select a medical director.'
+                    }                 
+                    }
+                },
+                clinic_manager: {
+                    validators:  { 
+                    notEmpty:   {
+                        message: 'You must select a clinic manager.'
+                        }                 
+                    }
+                }
+            
+            }//end of validation rules
+        });
+        
+        //Select2 search function    
+        $("#clinic-type").select2({
+            placeholder: "Select a clinic type.",
+            allowClear: true,
+            ajax: {
+            url: "/clinic_types",
+            dataType: 'json',
+            delay: 250,
+            global: false,
+            headers: {'x-auth-token': Lockr.get('authToken')},
+            data: function (params) {
+                return {
+                type: params.term
+                };
+            },
+            processResults: function (result, params) {      
+                var array = _.map(result.data, function(object) {         
+                return {
+                    id: object.id,
+                    text: object.type
+                }
+                });
+                return {
+                results: array
+                };
+            }
+            },
+            minimumInputLength: 0,
+            theme: "bootstrap"
+        });
+
+        $("#clinic-regional-director").select2({
+            placeholder: "Select a regional director.",
+            allowClear: true,
+            ajax: {
+            url: "/contacts",
+            dataType: 'json',
+            delay: 250,
+            global: false,
+            headers: {'x-auth-token': Lockr.get('authToken')},
+            data: function (params) {
+                // console.log(params)
+                return {
+                name: params.term
+                };
+            },
+            processResults: function (result, params) {      
+                var array = _.map(result.data, function(object) {  
+                    name = object.first + " " + object.last;      
+                return {
+                    id: object.id,
+                    text: name
+                }
+                });
+                return {
+                results: array
+                };
+            }
+            },
+            minimumInputLength: 2,
+            theme: "bootstrap"
+        });
+        $("#clinic-medical-director").select2({
+            placeholder: "Select a medical director.",
+            allowClear: true,
+            ajax: {
+            url: "/contacts",
+            dataType: 'json',
+            delay: 250,
+            global: false,
+            headers: {'x-auth-token': Lockr.get('authToken')},
+            data: function (params) {
+                return {
+                name: params.term //search term, NOT implemented yet
+                };
+            },
+            processResults: function (result, params) {      
+                var array = _.map(result.data, function(object) {  
+                name = object.first + " " + object.last;             
+                return {
+                    id: object.id,
+                    text: name
+                }
+                });
+                console.log(name)
+                return {
+                results: array
+                };
+            }
+            },
+            minimumInputLength: 2,
+            theme: "bootstrap"
+        });
+        $("#clinic-manager").select2({
+            placeholder: "Select a clinic manager.",
+            allowClear: true,
+            ajax: {
+            url: "/contacts",
+            dataType: 'json',
+            delay: 250,
+            global: false,
+            headers: {'x-auth-token': Lockr.get('authToken')},
+            data: function (params) {
+                return {
+                name: params.term //search term, NOT implemented yet
+                };
+            },
+            processResults: function (result, params) {      
+                var array = _.map(result.data, function(object) {    
+                name = object.first + " " + object.last;           
+                return {
+                    id: object.id,
+                    text: name
+                }
+                });
+                return {
+                results: array
+                };
+            }
+            },
+            minimumInputLength: 2,
+            theme: "bootstrap"
+        });
+
+    });
+ </script>

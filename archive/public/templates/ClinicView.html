@@ -1,0 +1,280 @@
+<div class="col-xs-12">
+  <a class="btn btn-default" href="javascript:history.back()"><i class="fa fa-arrow-left"></i> Back</a>
+  
+</div>
+<div id="message" class="col-sm-12"></div>
+
+<div class="col-xs-7" id="clinic-info">
+  <h2><%=clinic.name%></h2>
+  <%if (clinic.inactive == 1 || clinic.inactive == true){ %>
+    <h4 style="color:red;"><%=clinic.name%> is not currently active</h4>
+  <% } %>
+  <form class="form-horizontal form-clinic" style="margin-top: 40px;" method="POST" >        
+    <div class="form-group">
+      <label for="clinic-name" class="col-sm-3 control-label">Clinic name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-name" value="<%=clinic.name%>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinic-type" class="col-sm-3 control-label">Type</label>
+      <div class="col-sm-9">
+        <select class="form-control contact-type" id="clinic-type" name="type" style="width: 100%" >
+            <option value="<%=clinic.type.id%>"><%=clinic.type.type%></option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinic-name" class="col-sm-3 control-label">Clinic code</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-code" value="<%=clinic.clinic_code%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="clinic-accounting-number" class="col-sm-3 control-label">Accounting number</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-accounting-number" value="<%=clinic.accounting_number%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="clinic-conversion" class="col-sm-3 control-label">Conversion date</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-conversion" value="<%=moment(clinic.conversion_date).format('MM-DD-YYYY')%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="clinic-pms" class="col-sm-3 control-label">PMS</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-pms" value="<%=clinic.pms%>">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="clinic-phone1" class="col-sm-3 control-label">Phone 1</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-phone1" value="<%=clinic.phone1%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="clinic-phone2" class="col-sm-3 control-label">Phone 2</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-phone2" value="<%=clinic.phone2%>">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="clinic-email1" class="col-sm-3 control-label">Email 1</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-email1" value="<%=clinic.email1%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="clinic-email2" class="col-sm-3 control-label">Email 2</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-email2" value="<%=clinic.email2%>">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="clinic-address" class="col-sm-3 control-label">Address </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-address" value="<%=clinic.address%>">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="clinic-city" class="col-sm-3 control-label">City</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-city" value="<%=clinic.city%>">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="clinic-province" class="col-sm-3 control-label">Province</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-province" value="<%=clinic.province%>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinic-postal" class="col-sm-3 control-label">Postal code</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-postal" value="<%=clinic.postal%>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinic-country" class="col-sm-3 control-label">Country</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="clinic-country"  value="<%=clinic.country%>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-12">
+        <span class="pull-right">
+              <button class="btn btn-danger archive-clinic">Delete</button>
+              <button class="btn btn-primary btn-save">Save</button>  
+        </span>
+      </div>       
+    </div>
+  </form>
+</div>
+<div class="col-xs-5">
+    <div class="col-xs-12" id="management-container"><h2 class="text-center">Management</h2>
+      <div class="col-sm-12 management-card text-center">
+          <div class="management-inner col-xs-8">
+              <div class="staff-header col-sm-12">Regional Director<span class="edit-staff glyphicon glyphicon-pencil hidden" aria-hidden="true"></span></div>
+              <div class="staff-body col-sm-12">               
+                  <select class="management-edit" id="clinic-regional-director" name="regional_director" style="width: 100%" >
+                    <option value="<%=clinic.regional_director.id%>" selected="selected"><%=clinic.regional_director.first%> <%=clinic.regional_director.last%></option>
+                  </select>
+              </div> 
+          </div>
+      </div>    
+
+      <div class="col-sm-12 management-card text-center">
+          <div class="management-inner col-xs-8">
+              <div class="staff-header col-sm-12">Clinic Manager<span class="edit-staff glyphicon glyphicon-pencil hidden" aria-hidden="true"></span></div>
+              <div class="staff-body col-sm-12">
+                <select class="form-control" id="clinic-medical-director" name="medical_director" style="width: 100%" >
+                    <option value="<%=clinic.medical_director.id%>"><%=clinic.medical_director.first%> <%=clinic.medical_director.last%></option>
+                </select>              
+              </div> 
+          </div>    
+      </div>
+
+      <div class="col-sm-12 management-card text-center">
+          <div class="management-inner col-xs-8">
+              <div class="staff-header col-sm-12">Medical Director<span class="edit-staff glyphicon glyphicon-pencil hidden" aria-hidden="true"></span></div>
+              <div class="staff-body col-sm-12">
+                <select class="form-control" id="clinic-manager" name="clinic_manager" style="width: 100%" >
+                    <option value="<%=clinic.clinic_manager.id%>" selected=""><%=clinic.clinic_manager.first%> <%=clinic.clinic_manager.last%></option>
+                </select>               
+              </div> 
+          </div>    
+      </div>
+  </div>
+</div> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $("#clinic-regional-director").select2({
+            ajax: {
+            url: "/contacts",
+            dataType: 'json',
+            delay: 250,
+            global: false,
+            headers: {'x-auth-token': Lockr.get('authToken')},
+            data: function (params) {
+                return {
+                name: params.term
+                };
+            },
+            processResults: function (result, params) {      
+                var array = _.map(result.data, function(object) {  
+                    name = object.first + " " + object.last;      
+                return {
+                    id: object.id,
+                    text: name
+                }
+                });
+                return {
+                results: array
+                };
+            }
+            },
+            minimumInputLength: 2,
+            theme: "bootstrap"
+        });
+         $("#clinic-medical-director").select2({
+            ajax: {
+            url: "/contacts",
+            dataType: 'json',
+            delay: 250,
+            global: false,
+            headers: {'x-auth-token': Lockr.get('authToken')},
+            data: function (params) {
+                return {
+                name: params.term //search term, NOT implemented yet
+                };
+            },
+            processResults: function (result, params) {      
+                var array = _.map(result.data, function(object) {  
+                name = object.first + " " + object.last;             
+                return {
+                    id: object.id,
+                    text: name
+                }
+                });
+                console.log(name)
+                return {
+                results: array
+                };
+            }
+            },
+            minimumInputLength: 2,
+            theme: "bootstrap"
+        });
+        $("#clinic-manager").select2({
+            ajax: {
+            url: "/contacts",
+            dataType: 'json',
+            delay: 250,
+            global: false,
+            headers: {'x-auth-token': Lockr.get('authToken')},
+            data: function (params) {
+                return {
+                name: params.term //search term, NOT implemented yet
+                };
+            },
+            processResults: function (result, params) {      
+                var array = _.map(result.data, function(object) {    
+                name = object.first + " " + object.last;           
+                return {
+                    id: object.id,
+                    text: name
+                }
+                });
+                return {
+                results: array
+                };
+            }
+            },
+            minimumInputLength: 2,
+            theme: "bootstrap"
+        });
+   $("#clinic-type").select2({
+    allowClear: true,
+    ajax: {
+      url: "/clinic_types",
+      dataType: 'json',
+      delay: 250,
+      headers: {'x-auth-token': Lockr.get('authToken')},
+      data: function (params) {
+        return {
+          type: params.term //search term, NOT implemented yet
+        };
+      },
+      processResults: function (result, params) {        
+        var array = _.map(result.data, function(object) {       
+          return {
+            id: object.id,
+            text: object.type
+          }
+        });
+        return {
+          results: array
+        };
+
+      }
+    },
+    minimumInputLength: 0,
+    theme: "bootstrap"
+    
+   });
+});
+</script>
