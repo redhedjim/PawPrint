@@ -1,0 +1,103 @@
+<div class="col-xs-12">
+  <a class="btn btn-default" href="javascript:history.back()"><i class="fa fa-arrow-left"></i> Back</a>
+  
+</div>
+<div id="message" class="col-sm-12"></div>
+
+<div class="col-xs-6" id="contact-info">
+  <h2><%=contact.prefix%> <%=contact.first%> <%=contact.last%></h2>
+  <%if (contact.inactive == 1 || contact.inactive == true){ %>
+    <h4 style="color:red;"><%=contact.prefix%> <%=contact.first%> <%=contact.last%> is not currently active</h4>
+  <% } %>
+  <form class="form-horizontal form-contact" style="margin-top: 40px;" method="POST" >        
+    
+    <div class="form-group">
+      <label for="contact-prefix" class="col-sm-3 control-label">Prefix</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="contact-prefix" value="<%=contact.prefix%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-first" class="col-sm-3 control-label">First name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="contact-first" value="<%=contact.first%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-last" class="col-sm-3 control-label">Last name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="contact-last" value="<%=contact.last%>">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="contact-title" class="col-sm-3 control-label">Job title</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="contact-title" value="<%=contact.job_title%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-phone1" class="col-sm-3 control-label">Phone 1</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="contact-phone1" value="<%=contact.phone1%>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contact-phone2" class="col-sm-3 control-label">Phone 2</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="contact-phone2" value="<%=contact.phone2%>">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="contact-email" class="col-sm-3 control-label">Email </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="contact-email" value="<%=contact.email%>">
+      </div>
+    </div>
+   
+
+    <div class="form-group">
+      <div class="col-sm-12">
+        <span class="pull-right">
+              <button class="btn btn-danger archive-contact">Delete</button>
+              <button class="btn btn-primary btn-save">Save</button>  
+        </span>
+      </div>       
+    </div>
+  </form>
+</div> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+   $("#contact-contact").select2({
+    allowClear: true,
+    ajax: {
+      url: "/contact",
+      dataType: 'json',
+      delay: 250,
+      headers: {'x-auth-token': Lockr.get('authToken')},
+      data: function (params) {
+        return {
+          type: params.term //search term, NOT implemented yet
+        };
+      },
+      processResults: function (result, params) {        
+        var array = _.map(result.data, function(object) {       
+          return {
+            id: object.id,
+            text: object.type
+          }
+        });
+        return {
+          results: array
+        };
+
+      }
+    },
+    minimumInputLength: 0,
+    theme: "bootstrap"
+    
+   });
+});
+</script>

@@ -1,0 +1,13 @@
+module.exports = {
+    'port': 3000,
+    'database_URL': '127.0.0.1',
+    'database_user': 'root',
+    'database_password': 'password',
+    'database': 'tbtrak',
+    'database_charset': 'utf8',
+    'secret': 'F:JDSF:LKJSDFBUASFLKJ',
+    'env' : 'dev', //valid values are dev or prod
+    'secret': 'clinictron123',
+    'salt': 'supersalt',
+    'algorithm': 'aes-256-ctr',
+};
