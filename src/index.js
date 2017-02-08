@@ -25,12 +25,12 @@ const compiler = webpack(webpackConfig);
 app.use(webpackMiddleware(compiler, {
     hot: true,
     publicPath: webpackConfig.output.publicPath,
-    noInfo: true
+    noInfo: false
 }));
 
 app.use(webpackHotMiddleware(compiler));
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, './index.html'));
+    res.sendFile(path.join(__dirname, './client/index.html'));
 });
 
 app.listen(Config.port, () => console.log('running on localhost:'+Config.port));

@@ -1,18 +1,23 @@
 import express from 'express';
 import authenticate from '../middlewares/authenticate';
-import LDAP from 'ldapjs';
+import Hospital from '../models/hospital';
 
 let router = express.Router();
 
-router.post('/', authenticate, (req, res) => {
-    /*Test route for LDAP*/
-    var client = ldap.createClient({
-        url: 'ldap01.vcaantech.com'
+router.post('/', authenticate, (req, res) => {   
+    res.status(201).json({ 
+        success: true, 
+        message: "Event created successfully, but not really." 
     });
-    // res.status(201).json({ 
-    //     success: true, 
-    //     message: "Event created successfully" 
-    // });
+});
+
+router.get('/', (req, res) => {
+
+    Hospital.forge().fetchAll().then((results) =>{        
+        res.status(201).json(results);
+
+    })
+
 });
 
 export default router;
