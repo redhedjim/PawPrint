@@ -4,11 +4,11 @@ import { Router, browserHistory, Route, Link, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './rootReducer';
+import rootReducer from './app/rootReducer';
 import setAuthorizationToken from './utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
-import { setCurrentUser } from './actions/authActions';
-import routes from './routes';
+import { setCurrentUser } from './users/actions/authActions';
+import routes from './app/routes';
 
 const store = createStore(
     rootReducer,

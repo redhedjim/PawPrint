@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { logout } from '../actions/authActions';
+import { logout } from '../../users/actions/authActions';
 
 class NavigationBar extends React.Component { 
 	logout(e) {
@@ -31,7 +31,7 @@ class NavigationBar extends React.Component {
 			<nav className="navbar navbar-default">
 				<div className="container-fluid">
 					<div className="navbar-header">
-						<Link to="/" className="navbar-brand">Fancy page</Link>
+						<Link to="/" className="navbar-brand">Home</Link>
 					</div>
 							
 					<div className="collapse navbar-collapse">

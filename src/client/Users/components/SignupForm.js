@@ -1,9 +1,9 @@
 import React from 'react';
-import timezones from '../../data/timezones';
+import timezones from '../../lib/timezones';
 import map from 'lodash/map';
 import classnames from 'classnames';
-import validateInput from '../../../server/shared/validations/signup';
-import TextFieldGroup from '../common/TextFieldGroup';
+import validateInput from '../../../server/validations/signup';
+import TextFieldGroup from '../../app/components/TextFieldGroup';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -45,7 +45,6 @@ class SignupForm extends React.Component {
       this.props.isUserExists(val).then(
 		  
 		  res => {
-			console.log(res.data.user);
 			let errors = this.state.errors;
 			let invalid;
 			if (res.data.user) {

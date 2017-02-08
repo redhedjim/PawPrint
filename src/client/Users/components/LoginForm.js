@@ -1,13 +1,12 @@
 import React from 'react';
-import TextFieldGroup from '../common/TextFieldGroup';
-import validateInput from '../../../server/shared/validations/login';
+import TextFieldGroup from '../../app/components/TextFieldGroup';
+import validateInput from '../../../server/validations/login';
 import { connect } from 'react-redux';
-import { login } from '../../actions/authActions';
+import { login } from '../actions/authActions';
 
 class LoginForm extends React.Component {
     constructor(props){
         super(props);
-        console.log(this)
         this.state = {
             identifier: '',
             password: '',

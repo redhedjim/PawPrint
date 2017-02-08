@@ -4,12 +4,11 @@ import bodyParser from 'body-parser';
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from '../webpack.config';
-import Config from '../config';
-
-import users from './routes/user';
-import auth from './routes/auth';
-import events from './routes/events';
+import webpackConfig from './webpack.config';
+import Config from './server/config/config';
+import users from './server/routes/user';
+import auth from './server/routes/auth';
+import events from './server/routes/events';
 
 
 let app = express();

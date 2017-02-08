@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './components/App';
-import Greetings from './components/Greetings';
-import SignupPage from './components/signup/SignupPage';
-import LoginPage from './components/login/LoginPage';
-import NewEventPage from './components/events/NewEventPage';
+import App from '../app/components/App';
+import Greetings from '../app/components/Greetings';
+import SignupPage from '../users/components/SignupPage';
+import LoginPage from '../users/components/LoginPage';
+import NewEventPage from '../events/components/NewEventPage';
 
-import requireAuth from './utils/requireAuth';
+import requireAuth from '../utils/requireAuth';
 
 export default (
     <Route path="/" component={App}>
