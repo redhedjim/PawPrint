@@ -12,11 +12,14 @@ router.post('/', authenticate, (req, res) => {
 });
 
 router.get('/', (req, res) => {
+    var getHospitals = new Promise((resolve, reject) => {
+        Hospital.forge().fetchAll().then((results) => {
+            resolve(results)
+        })
+    }).then((results) =>{        
+        res.status(201).json({data: results});
+    });
 
-    Hospital.forge().fetchAll().then((results) =>{        
-        res.status(201).json(results);
-
-    })
 
 });
 

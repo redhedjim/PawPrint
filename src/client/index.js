@@ -9,14 +9,24 @@ import setAuthorizationToken from './utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './users/actions/authActions';
 import routes from './app/routes';
+import ReduxPromise from 'redux-promise';
+
 
 const store = createStore(
-    rootReducer,
+    rootReducer, 
     compose(
-        applyMiddleware(thunk),
-        window.devToolsExtension ? window.devToolsExtension() : f => f    
-    )  
+        applyMiddleware(ReduxPromise, thunk),
+        window.devToolsExtension ? window.devToolsExtension() : f => f  
+    )
 );
+
+// const store = createStore(
+//     rootReducer,
+//     compose(
+//         applyMiddleware(thunk, ReduxPromise),
+//         window.devToolsExtension ? window.devToolsExtension() : f => f    
+//     )  
+// );
 
 if (localStorage.jwtToken) {
     setAuthorizationToken(localStorage.jwtToken);

@@ -8,7 +8,7 @@ import webpackConfig from './webpack.config';
 import Config from './server/config/config';
 import users from './server/routes/user';
 import auth from './server/routes/auth';
-import events from './server/routes/events';
+import hospitals from './server/routes/hospitals';
 
 
 let app = express();
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.use('/api/users', users);
 app.use('/api/auth', auth);
-app.use('/api/events', events);
+app.use('/api/hospitals', hospitals);
 
 var morgan = require('morgan'); //used to see requests
 
