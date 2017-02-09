@@ -14,6 +14,7 @@ import ReduxPromise from 'redux-promise';
 
 const store = createStore(
     rootReducer, 
+    initialState,
     compose(
         applyMiddleware(ReduxPromise, thunk),
         window.devToolsExtension ? window.devToolsExtension() : f => f  
