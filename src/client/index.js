@@ -10,13 +10,13 @@ import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './users/actions/authActions';
 import routes from './app/routes';
 import ReduxPromise from 'redux-promise';
+import logger from 'redux-logger';
 
 
 const store = createStore(
     rootReducer, 
-    initialState,
     compose(
-        applyMiddleware(ReduxPromise, thunk),
+        applyMiddleware(ReduxPromise, thunk, logger()),
         window.devToolsExtension ? window.devToolsExtension() : f => f  
     )
 );

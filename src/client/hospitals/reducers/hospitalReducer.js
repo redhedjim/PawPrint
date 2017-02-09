@@ -1,9 +1,11 @@
-import { FETCH_HOSPITALS } from '../actions/hospitalActions';
+import {GET_HOSPITALS} from '../actions/hospitalActions';
 
-export default function(state = [], action) {
+export default (state = null, action) => {
+  console.log('Actionsssss: ', action.type);
   switch (action.type) {
-    case FETCH_HOSPITALS:
-      return [ action.payload.data, ...state ];
+    case 'GET_HOSPITALS':
+      return action.hospitals;
+    default:
+      return state;
   }
-  return state;  
-}
+};
