@@ -7,29 +7,32 @@ import { fetchHospitals } from '../actions/hospitalActions';
 import axios from 'axios';
 
 class HospitalsPage extends Component {
-    constructor(props){
-        super(props);
-        state: {
-            hospitals: [];
-        }
+    
+    componentWillMount() {
+        this.setState({hospitals: this.props.fetchHospitals()});      
     }
-    componentWillMount(props) {
-        this.setState({hospitals: this.props.fetchHospitals({"pms": "Cornerstone"})});
-    }
-    render(props) {
+  
+    render() {
         return (
             <div>
                 <div className="col-sm-12">
                     <h1 className="text-center">Hospitals</h1>
                 </div>
                 <div className="col-sm-6"><HospitalCard /></div>
-                <div className="col-sm-6"><HospitalList hospitals={this.props}/></div>
+                <div className="col-sm-6"><HospitalList /></div>
             </div>
         );
     }
 }
+
 HospitalsPage.propTypes = {
     fetchHospitals: React.PropTypes.func.isRequired
 }
 
-export default connect(null, { fetchHospitals })(HospitalsPage);
+const mapStateToProps = (state) => {
+  return {
+      hospitals: state.hospitals,
+      active_hospital: state.active_hospital
+  }
+}
+export default connect(mapStateToProps, { fetchHospitals })(HospitalsPage);

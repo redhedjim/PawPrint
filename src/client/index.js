@@ -12,22 +12,17 @@ import routes from './app/routes';
 import ReduxPromise from 'redux-promise';
 import logger from 'redux-logger';
 
-
+const initialState = { 
+  active_hospital: [[{ id:123, accounting_number:12345, phone1: '403-555-1212', phone2: "403-555-1222", address: "123 East st. NW" }]] 
+};
 const store = createStore(
     rootReducer, 
+    initialState,
     compose(
         applyMiddleware(ReduxPromise, thunk, logger()),
         window.devToolsExtension ? window.devToolsExtension() : f => f  
     )
 );
-
-// const store = createStore(
-//     rootReducer,
-//     compose(
-//         applyMiddleware(thunk, ReduxPromise),
-//         window.devToolsExtension ? window.devToolsExtension() : f => f    
-//     )  
-// );
 
 if (localStorage.jwtToken) {
     setAuthorizationToken(localStorage.jwtToken);
