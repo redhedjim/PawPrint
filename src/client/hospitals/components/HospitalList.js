@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { setActiveHospital } from '../actions/hospitalActions';
 
 class HospitalList extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             search_term: ''
         }
@@ -23,7 +23,7 @@ class HospitalList extends Component {
     render() {   
         if (!this.props.hospitals || !this.props.hospitals.length) {
             return null;
-        }else{   
+        }else{               
             const hospitals = this.props.hospitals[0].filter((hospital) =>{
                 const matchesSearch = (field) => {
                     return field.toString().toLowerCase().indexOf(this.state.search_term)!=-1;

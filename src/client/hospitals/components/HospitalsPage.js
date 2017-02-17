@@ -9,10 +9,10 @@ import axios from 'axios';
 class HospitalsPage extends Component {
     
     componentWillMount() {
-        this.setState({hospitals: this.props.fetchHospitals()});      
+        this.props.fetchHospitals();      
     }
   
-    render() {
+    render() {        
         return (
             <div>
                 <div className="col-sm-12">
@@ -31,8 +31,7 @@ HospitalsPage.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-      hospitals: state.hospitals,
-      active_hospital: state.active_hospital
+      hospitals: state.hospitals
   }
 }
 export default connect(mapStateToProps, { fetchHospitals })(HospitalsPage);

@@ -9,7 +9,7 @@ export function getHospitals(state = [], action) {
   }
 }
 
-export function setActiveHospital(state = [], action) {
+export function setActiveHospital(state = {}, action) {
   switch (action.type) {
     case 'SET_ACTIVE_HOSPITAL':    
       return action.active_hospital

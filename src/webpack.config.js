@@ -25,10 +25,14 @@ export default {
                     path.join(__dirname, 'server')
                 ],
                 loaders: ['babel']
+            },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
             }
         ]
     },
     resolve: {
-        extensions: [ '', '.js']
+        extensions: [ '', '.js', '.css']
     }
 }
